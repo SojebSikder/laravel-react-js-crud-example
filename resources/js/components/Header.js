@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import Home from './Home';
 import About from './About';
+import Category from './category/Index';
 
 export default class Header extends Component {
     render() {
@@ -26,16 +27,20 @@ export default class Header extends Component {
                             <li className="nav-item">
                                 <Link to="/about" className="nav-link" >About</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/category" className="nav-link" >Category</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 </nav>
         
 
-                <switch>
+                <Switch>
                     <Route exact path='/' component={Home} />
                     <Route path='/about' component={About} />
-                </switch>
+                    <Route path='/category' component={Category} />
+                </Switch>
              </Router>
             </div>
         );
