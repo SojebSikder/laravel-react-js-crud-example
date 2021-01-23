@@ -5,6 +5,12 @@
 
     RewriteEngine On
 
+    # My Custom htaccess
+    Options -Indexes
+    Options FollowSymLinks
+    RewriteBase /laravel-react-js-crud-example/
+    # End my
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
