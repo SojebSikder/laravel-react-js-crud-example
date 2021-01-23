@@ -9,8 +9,12 @@ export default class About extends Component {
         return (
             <div>
                 <Router>
-                    <Link to="/category">Listing</Link>
-                    <Link to="/category/Add">Add</Link>
+                    <div>
+                        <hr />
+                        <Link to="/category" className="btn btn-primary">Listing</Link> &nbsp;
+                        <Link to="/category/Add" className="btn btn-primary">Add</Link>
+                    </div>
+                    
 
                     <Switch>
                         <Route exact path="/category" component={Listing} />
