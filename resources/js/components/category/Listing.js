@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Config from '../../classes/Config.js';
 import axios from 'axios';
 
 export default class Listing extends Component {
@@ -12,17 +13,10 @@ export default class Listing extends Component {
 
     }
 
-    /**
-     * Server address
-     */
-    getUrl()
-    {
-        return 'http://127.0.0.1:8000';
-    }
 
     componentDidMount()
     {
-        axios.get(this.getUrl()+"/category")
+        axios.get(Config.getUrl()+"/category")
         .then(response=>{
             this.setState({categories:response.data});
         });
@@ -46,9 +40,9 @@ export default class Listing extends Component {
                         this.state.categories.map(category=>{
                             return(
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">{category.id}</th>
                                     <td>{category.name}</td>
-                                    <td>{category.active}</td>
+                                    <td>{category.active=1?("Active"):("Inactive")}</td>
                                     <td>{category.created_at}</td>
                                     <td>{category.updated_at}</td>
                                 </tr>

@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/category', [App\Http\Controllers\Api\CategoryController::class, 'index']);
+Route::post('/category/store', [App\Http\Controllers\Api\CategoryController::class, 'store']);
