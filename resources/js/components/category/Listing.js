@@ -101,7 +101,7 @@ export default class Listing extends Component {
                 </tbody>
                 </table>     
 
-                <div class="d-flex justify-content-center">
+                <div className="d-flex justify-content-center">
                     <Pagination
                     activePage={this.state.activePage}
                     itemsCountPerPage={this.state.itemsCountPerPage}

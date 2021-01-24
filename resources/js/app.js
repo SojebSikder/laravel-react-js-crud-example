@@ -15,8 +15,9 @@ require('./bootstrap');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Index from "./components/Index";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 
 if (document.getElementById('app')) {
-  ReactDOM.render(<Index />, document.getElementById('app'));
+  ReactDOM.render(<Router><Index /></Router>, document.getElementById('app'));
 }
 

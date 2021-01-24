@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 
 import Home from './Home';
 import About from './About';
@@ -10,7 +10,6 @@ export default class Header extends Component {
         return (
 
             <div>
-            <Router>
 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
@@ -35,13 +34,13 @@ export default class Header extends Component {
                 </div>
                 </nav>
         
-
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route path='/about' component={About} />
-                    <Route path='/category' component={Category} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/category' component={Category} />
+                    <Route exact path="/category/add" component={Category} />
+                    <Route exact path="/category/edit/:id" component={Category} />
                 </Switch>
-             </Router>
             </div>
         );
     }

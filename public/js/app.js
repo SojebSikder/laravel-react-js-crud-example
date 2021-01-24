@@ -1924,6 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 /**
@@ -1943,8 +1944,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
 if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Index__WEBPACK_IMPORTED_MODULE_3__.default, {}), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_components_Index__WEBPACK_IMPORTED_MODULE_3__.default, {})
+  }), document.getElementById('app'));
 }
 
 /***/ }),
@@ -2025,7 +2029,7 @@ var Config = /*#__PURE__*/function () {
      * Get Server address
      */
     value: function getUrl() {
-      return 'http://127.0.0.1:8000';
+      return 'http://127.0.0.1:8000/api';
     }
   }]);
 
@@ -2231,72 +2235,80 @@ var Header = /*#__PURE__*/function (_Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", {
-            className: "navbar navbar-expand-lg navbar-dark bg-dark",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-              className: "container-fluid",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                to: "/",
-                className: "navbar-brand",
-                children: "Navbar"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-                className: "navbar-toggler",
-                type: "button",
-                "data-bs-toggle": "collapse",
-                "data-bs-target": "#navbarSupportedContent",
-                "aria-controls": "navbarSupportedContent",
-                "aria-expanded": "false",
-                "aria-label": "Toggle navigation",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-                  className: "navbar-toggler-icon"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                className: "collapse navbar-collapse",
-                id: "navbarSupportedContent",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
-                  className: "navbar-nav me-auto mb-2 mb-lg-0",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-                    className: "nav-item",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                      to: "/",
-                      className: "nav-link active",
-                      "aria-current": "page",
-                      children: "Home"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-                    className: "nav-item",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                      to: "/about",
-                      className: "nav-link",
-                      children: "About"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-                    className: "nav-item",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-                      to: "/category",
-                      className: "nav-link",
-                      children: "Category"
-                    })
-                  })]
-                })
-              })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-              exact: true,
-              path: "/",
-              component: _Home__WEBPACK_IMPORTED_MODULE_2__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-              path: "/about",
-              component: _About__WEBPACK_IMPORTED_MODULE_3__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-              path: "/category",
-              component: _category_Index__WEBPACK_IMPORTED_MODULE_4__.default
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("nav", {
+          className: "navbar navbar-expand-lg navbar-dark bg-dark",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "container-fluid",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+              to: "/",
+              className: "navbar-brand",
+              children: "Navbar"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+              className: "navbar-toggler",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#navbarSupportedContent",
+              "aria-controls": "navbarSupportedContent",
+              "aria-expanded": "false",
+              "aria-label": "Toggle navigation",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                className: "navbar-toggler-icon"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              className: "collapse navbar-collapse",
+              id: "navbarSupportedContent",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+                className: "navbar-nav me-auto mb-2 mb-lg-0",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  className: "nav-item",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                    to: "/",
+                    className: "nav-link active",
+                    "aria-current": "page",
+                    children: "Home"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  className: "nav-item",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                    to: "/about",
+                    className: "nav-link",
+                    children: "About"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
+                  className: "nav-item",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                    to: "/category",
+                    className: "nav-link",
+                    children: "Category"
+                  })
+                })]
+              })
             })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/",
+            component: _Home__WEBPACK_IMPORTED_MODULE_2__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/about",
+            component: _About__WEBPACK_IMPORTED_MODULE_3__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/category",
+            component: _category_Index__WEBPACK_IMPORTED_MODULE_4__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/category/add",
+            component: _category_Index__WEBPACK_IMPORTED_MODULE_4__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/category/edit/:id",
+            component: _category_Index__WEBPACK_IMPORTED_MODULE_4__.default
           })]
-        })
+        })]
       });
     }
   }]);
@@ -2720,32 +2732,32 @@ var About = /*#__PURE__*/function (_Component) {
   _createClass(About, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.BrowserRouter, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-              to: "/category",
-              className: "btn btn-primary",
-              children: "Listing"
-            }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-              to: "/category/Add",
-              className: "btn btn-primary",
-              children: "Add"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-              exact: true,
-              path: "/category",
-              component: _Listing__WEBPACK_IMPORTED_MODULE_4__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-              path: "/category/Add",
-              component: _Add__WEBPACK_IMPORTED_MODULE_2__.default
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-              path: "/category/edit/:id",
-              component: _Edit__WEBPACK_IMPORTED_MODULE_3__.default
-            })]
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/category",
+            className: "btn btn-primary",
+            children: "Listing"
+          }), " \xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+            to: "/category/add",
+            className: "btn btn-primary",
+            children: "Add"
           })]
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/category",
+            component: _Listing__WEBPACK_IMPORTED_MODULE_4__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/category/add",
+            component: _Add__WEBPACK_IMPORTED_MODULE_2__.default
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+            exact: true,
+            path: "/category/edit/:id",
+            component: _Edit__WEBPACK_IMPORTED_MODULE_3__.default
+          })]
+        })]
       });
     }
   }]);
@@ -2934,7 +2946,7 @@ var Listing = /*#__PURE__*/function (_Component) {
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-          "class": "d-flex justify-content-center",
+          className: "d-flex justify-content-center",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_js_pagination__WEBPACK_IMPORTED_MODULE_3__.default, {
             activePage: this.state.activePage,
             itemsCountPerPage: this.state.itemsCountPerPage,
