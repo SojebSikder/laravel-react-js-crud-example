@@ -23,3 +23,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/category', [App\Http\Controllers\Api\CategoryController::class, 'index']);
 Route::post('/category/store', [App\Http\Controllers\Api\CategoryController::class, 'store']);
+Route::delete('/category/delete/{id}', [App\Http\Controllers\Api\CategoryController::class, 'destroy']);
