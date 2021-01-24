@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Add from './Add';
+import Edit from './Edit';
 import Listing from './Listing';
 
 export default class About extends Component {
@@ -19,6 +20,7 @@ export default class About extends Component {
                     <Switch>
                         <Route exact path="/category" component={Listing} />
                         <Route path="/category/Add" component={Add} />
+                        <Route path="/category/edit/:id" component={Edit} />
                     </Switch>
                     
                 </Router>
