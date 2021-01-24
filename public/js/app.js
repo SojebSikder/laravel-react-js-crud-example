@@ -2616,7 +2616,7 @@ var Edit = /*#__PURE__*/function (_Component) {
       var category = {
         category_name: this.state.category_name
       };
-      axios__WEBPACK_IMPORTED_MODULE_3___default().post(_classes_Config_js__WEBPACK_IMPORTED_MODULE_2__.default.getUrl() + "/category/store", category).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_3___default().put(_classes_Config_js__WEBPACK_IMPORTED_MODULE_2__.default.getUrl() + "/category/update/" + this.props.match.params.id, category).then(function (res) {
         return console.log(res.data);
       });
     }

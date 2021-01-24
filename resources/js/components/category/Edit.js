@@ -33,7 +33,7 @@ export default class Edit extends Component {
         const category ={
             category_name: this.state.category_name
         }
-        axios.post(Config.getUrl()+"/category/store", category)
+        axios.put(Config.getUrl()+"/category/update/"+this.props.match.params.id, category)
         .then(res=>console.log(res.data));
     }
 
