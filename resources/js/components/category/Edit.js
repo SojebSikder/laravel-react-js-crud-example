@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Config from '../../classes/Config.js';
 import axios from 'axios';
+import SuccessAlert from './SuccessAlert';
 
 export default class Edit extends Component {
 
@@ -11,7 +12,8 @@ export default class Edit extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         
         this.state={
-            category_name:''
+            category_name:'',
+            alert_message:''
         }
     }
 
@@ -34,13 +36,21 @@ export default class Edit extends Component {
             category_name: this.state.category_name
         }
         axios.put(Config.getUrl()+"/category/update/"+this.props.match.params.id, category)
-        .then(res=>console.log(res.data));
+        .then(res=>{
+            this.setState({alert_message:'success'});
+        }).catch(error=>{
+            this.setState({alert_message:'error'});
+        });
     }
 
 
     render() {
         return (
             <div>
+                <hr />
+                {this.state.alert_message=="success"?<SuccessAlert type="success" msg="Data updated successfully!" />:null}
+                {this.state.alert_message=="error"?<SuccessAlert type="warning" msg="Error occured" />:null}
+
                 <form onSubmit={this.onSubmit}>
                     <div className="mb-3">
                         <label htmlFor="category_name" className="form-label">Category Name</label>

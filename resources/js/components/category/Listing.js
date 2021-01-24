@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import Pagination from "react-js-pagination";
 import Config from '../../classes/Config.js';
+import SuccessAlert from './SuccessAlert.js';
 
 export default class Listing extends Component {
 
@@ -11,6 +12,7 @@ export default class Listing extends Component {
         super();
         this.state={
             categories:[],
+            alert_message:'',
 
             activePage:1,
             itemsCountPerPage:1,
@@ -46,8 +48,11 @@ export default class Listing extends Component {
                 {
                     categories.splice(i, 1);
                     this.setState({categories:categories});
+                    this.setState({alert_message:'success'});
                 }
             }
+        }).catch(error=>{
+            this.setState({alert_message:'error'});
         });
     }
 
@@ -69,6 +74,9 @@ export default class Listing extends Component {
     render() {
         return (
             <div>
+                {this.state.alert_message=="success"?<SuccessAlert type="success" msg="Data deleted successfully!" />:null}
+                {this.state.alert_message=="error"?<SuccessAlert type="warning" msg="Error occured" />:null}
+
                 <table className="table">
                 <thead>
                     <tr>
