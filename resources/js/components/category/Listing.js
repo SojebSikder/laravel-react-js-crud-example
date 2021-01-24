@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import Pagination from "react-js-pagination";
 import Config from '../../classes/Config.js';
 
 export default class Listing extends Component {
@@ -9,7 +10,12 @@ export default class Listing extends Component {
     {
         super();
         this.state={
-            categories:[]
+            categories:[],
+
+            activePage:1,
+            itemsCountPerPage:1,
+            totalItemsCount:1,
+            pageRangeDisplayed:3
         }
 
     }
@@ -19,7 +25,12 @@ export default class Listing extends Component {
     {
         axios.get(Config.getUrl()+"/category")
         .then(response=>{
-            this.setState({categories:response.data});
+            this.setState({
+                categories:response.data.data,
+                itemsCountPerPage:response.data.per_page,
+                totalItemsCount:response.data.total,
+                activePage:response.data.current_page
+            });
         });
     }
 
@@ -37,6 +48,21 @@ export default class Listing extends Component {
                     this.setState({categories:categories});
                 }
             }
+        });
+    }
+
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        //this.setState({activePage: pageNumber});
+
+        axios.get(Config.getUrl()+"/category?page="+pageNumber)
+        .then(response=>{
+            this.setState({
+                categories:response.data.data,
+                itemsCountPerPage:response.data.per_page,
+                totalItemsCount:response.data.total,
+                activePage:response.data.current_page
+            });
         });
     }
 
@@ -73,7 +99,19 @@ export default class Listing extends Component {
                         })
                     }
                 </tbody>
-                </table>               
+                </table>     
+
+                <div class="d-flex justify-content-center">
+                    <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={this.state.itemsCountPerPage}
+                    totalItemsCount={this.state.totalItemsCount}
+                    pageRangeDisplayed={this.state.pageRangeDisplayed}
+                    onChange={this.handlePageChange.bind(this)}
+                    itemClass='page-item'
+                    linkClass='page-link'
+                    />
+                </div>
             </div>
         );
     }

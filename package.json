@@ -30,6 +30,7 @@
         "@inertiajs/inertia": "^0.8.4",
         "@inertiajs/inertia-react": "^0.5.2",
         "@types/react": "^17.0.0",
+        "react-js-pagination": "^3.0.3",
         "react-router-dom": "^5.2.0"
     }
 }
