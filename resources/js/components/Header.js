@@ -4,6 +4,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import Home from './Home';
 import About from './About';
 import Category from './category/Index';
+import Error404 from './Error404';
 
 export default class Header extends Component {
     render() {
@@ -40,6 +41,8 @@ export default class Header extends Component {
                     <Route exact path='/category' component={Category} />
                     <Route exact path="/category/add" component={Category} />
                     <Route exact path="/category/edit/:id" component={Category} />
+
+                    <Route exact path="/*" component={Error404} />
                 </Switch>
             </div>
         );
