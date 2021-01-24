@@ -48,9 +48,10 @@ export default class Listing extends Component {
                 {
                     categories.splice(i, 1);
                     this.setState({categories:categories});
-                    this.setState({alert_message:'success'});
                 }
             }
+            this.setState({alert_message:'success'});
+
         }).catch(error=>{
             this.setState({alert_message:'error'});
         });
@@ -92,7 +93,7 @@ export default class Listing extends Component {
                     {
                         this.state.categories.map(category=>{
                             return(
-                                <tr>
+                                <tr key={category.id}>
                                     <th scope="row">{category.id}</th>
                                     <td>{category.name}</td>
                                     <td>{category.active=1?("Active"):("Inactive")}</td>

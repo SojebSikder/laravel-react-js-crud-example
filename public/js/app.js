@@ -2980,12 +2980,12 @@ var Listing = /*#__PURE__*/function (_Component) {
             _this3.setState({
               categories: categories
             });
-
-            _this3.setState({
-              alert_message: 'success'
-            });
           }
         }
+
+        _this3.setState({
+          alert_message: 'success'
+        });
       })["catch"](function (error) {
         _this3.setState({
           alert_message: 'error'
@@ -3068,7 +3068,7 @@ var Listing = /*#__PURE__*/function (_Component) {
                     children: "Delete"
                   })]
                 })]
-              });
+              }, category.id);
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
